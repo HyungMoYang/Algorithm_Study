@@ -19,8 +19,15 @@ def selection_sort(unsorted_list):
         unsorted_list[i], unsorted_list[min_index] = unsorted_list[min_index], unsorted_list[i]
 
 
+def bubble_sort(arr):
+    for i in range(len(arr) - 1, 0, -1):
+        for j in range(i):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+
 test_list = random.sample(range(0, 100), 20)  # [1, 100]의 구간에서 20개의 난수 생성
 
 print(f"unsorted list: {test_list}")
-insertion_sort(test_list)
+bubble_sort(test_list)
 print(f"sorted list: {test_list}")
