@@ -26,8 +26,30 @@ def bubble_sort(arr):
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
 
+def merge_sort(arr):
+    if len(arr) < 2:
+        return arr
+
+    mid = len(arr) // 2
+    low_arr = merge_sort(arr[:mid])
+    high_arr = merge_sort(arr[mid:])
+
+    merged_arr = []
+    l = h = 0
+    while l < len(low_arr) and h < len(high_arr):
+        if low_arr[l] < high_arr[h]:
+            merged_arr.append(low_arr[l])
+            l += 1
+        else:
+            merged_arr.append(high_arr[h])
+            h += 1
+    merged_arr += low_arr[l:]
+    merged_arr += high_arr[h:]
+    return merged_arr
+
+
 test_list = random.sample(range(0, 100), 20)  # [1, 100]의 구간에서 20개의 난수 생성
 
 print(f"unsorted list: {test_list}")
-bubble_sort(test_list)
+test_list = merge_sort(test_list)
 print(f"sorted list: {test_list}")
