@@ -1,3 +1,2 @@
-# Algorithm_Study
 
-Study
+1
